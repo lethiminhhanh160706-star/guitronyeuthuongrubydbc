@@ -1,0 +1,94 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-beige: var(--beige);
+  --color-forest: var(--forest);
+  --color-forest-foreground: var(--forest-foreground);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.975 0.015 85);
+  --foreground: oklch(0.25 0.04 155);
+  --card: oklch(0.99 0.01 85);
+  --card-foreground: oklch(0.25 0.04 155);
+  --popover: oklch(0.99 0.01 85);
+  --popover-foreground: oklch(0.25 0.04 155);
+  --primary: oklch(0.32 0.06 158);
+  --primary-foreground: oklch(0.97 0.02 85);
+  --secondary: oklch(0.92 0.035 80);
+  --secondary-foreground: oklch(0.28 0.05 158);
+  --muted: oklch(0.94 0.025 82);
+  --muted-foreground: oklch(0.48 0.03 150);
+  --accent: oklch(0.74 0.12 80);
+  --accent-foreground: oklch(0.22 0.04 155);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.86 0.04 82);
+  --input: oklch(0.86 0.04 82);
+  --ring: oklch(0.74 0.12 80);
+  --gold: oklch(0.74 0.12 80);
+  --gold-soft: oklch(0.86 0.08 85);
+  --beige: oklch(0.9 0.04 78);
+  --forest: oklch(0.24 0.05 158);
+  --forest-foreground: oklch(0.95 0.025 85);
+  --gradient-forest: linear-gradient(160deg, oklch(0.22 0.05 158), oklch(0.32 0.06 155));
+  --gradient-gold: linear-gradient(90deg, oklch(0.68 0.12 75), oklch(0.84 0.1 88), oklch(0.68 0.12 75));
+  --shadow-elegant: 0 20px 50px -20px oklch(0.24 0.05 158 / 0.35);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); }
+}
+
+@utility bg-gradient-forest { background-image: var(--gradient-forest); }
+@utility text-gradient-gold {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility shadow-elegant { box-shadow: var(--shadow-elegant); }
+@utility gold-rule {
+  height: 1px;
+  width: 4rem;
+  background-image: var(--gradient-gold);
+}
